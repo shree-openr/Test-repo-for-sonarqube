@@ -27,6 +27,8 @@ jobs:
           args: >
             -Dsonar.organization=shree-openr
             -Dsonar.projectKey=Test-repo-for-sonarqube
+            -Dsonar.sources=my-project
+            -Dsonar.sourceEncoding=UTF-8
             -Dsonar.branch.name=${{ github.ref_name }}
             -Dsonar.branch.target=${{ github.base_ref || 'main' }}
             -Dsonar.qualitygate.wait=true

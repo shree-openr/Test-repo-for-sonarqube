@@ -1,0 +1,30 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "A sample project for demonstrating SonarQube analysis.",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"No tests specified\" && exit 0",
+    "sonar": "sonar-scanner"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/my-project.git"
+  },
+  "keywords": [
+    "sonarqube",
+    "typescript",
+    "terraform"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "sonarqube-scanner": "^2.8.0"
+  }
+}

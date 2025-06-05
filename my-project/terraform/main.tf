@@ -18,9 +18,11 @@ resource "aws_lambda_function" "my_project_lambda" {
   s3_key        = "lambda_function.zip"
   handler       = "index.handler"
   runtime       = "nodejs14.x"
-
+  role          = aws_iam_role.lambda_execution_role.arn
   environment {
-    NODE_ENV = "production"
+    variables = {
+      NODE_ENV = "production"
+  }
   }
 }
 

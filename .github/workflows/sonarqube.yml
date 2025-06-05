@@ -1,0 +1,32 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - staging
+      - 'feature/**' 
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for PR analysis
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=shree-openr
+            -Dsonar.projectKey=Test-repo-for-sonarqube
+            -Dsonar.branch.name=${{ github.ref_name }}
+            -Dsonar.branch.target=${{ github.base_ref || 'main' }}
+            -Dsonar.qualitygate.wait=true

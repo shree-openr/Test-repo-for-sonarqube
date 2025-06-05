@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0  # Required for PR analysis
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         with:

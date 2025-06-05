@@ -83,3 +83,6 @@ output "db_instance_endpoint" {
 output "bucket_name_duplicate" {
   value = aws_s3_bucket.my_project_bucket.bucket
 }
+output "lambda_function_name_duplicate" {
+  value = aws_lambda_function.my_project_lambda.function_name
+}

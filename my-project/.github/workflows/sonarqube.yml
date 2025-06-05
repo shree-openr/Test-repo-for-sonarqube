@@ -24,8 +24,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=<your-org-key>
-            -Dsonar.projectKey=<your-repo-name>
+            -Dsonar.organization=shree-openr
+            -Dsonar.projectKey=${{ github.event.repository.name }}
             -Dsonar.branch.name=${{ github.ref_name }}
             -Dsonar.branch.target=${{ github.base_ref || 'main' }}
             -Dsonar.qualitygate.wait=true

@@ -10,4 +10,5 @@ jobs:
     uses: shree-test-org/Centralized-sonarQube-configuration/.github/workflows/sonarqube.yml@main
     with:
       project-key: shree-test-org_Test-repo-for-sonarqube
-    secrets: {inherit}
+    secrets: 
+      SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

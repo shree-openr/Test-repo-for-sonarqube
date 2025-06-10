@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   sonar:
-    uses: your-org/sonarqube-workflows/.github/workflows/sonarqube.yml@main
+    uses: subhashree-dhal/Centralized-sonarQube-configuration/.github/workflows/sonarqube.yml@main
     with:
       project-key: shree-test-org_Test-repo-for-sonarqube
     secrets: {inherit}

@@ -1,4 +1,4 @@
-name: SonarCloud Analysis
+name: linting
 on:
   push:
     branches:
@@ -6,14 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+  sonar:
+    uses: your-org/sonarqube-workflows/.github/workflows/sonarqube.yml@main
+    with:
+      project-key: shree-test-org_Test-repo-for-sonarqube
+    secrets: {inherit}
